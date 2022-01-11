@@ -1,0 +1,22 @@
+.notfound{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+.notfound-text{
+    color: rgb(84, 82, 103);
+    transform: translate(39vw,40vh);
+    font-size: 3rem;
+    font-weight: 500;
+    width: fit-content;
+    -webkit-box-shadow: 7px 9px 16px 2px rgba(0,0,0,0.59); 
+    box-shadow: 7px 9px 16px 2px rgba(0,0,0,0.59);
+    border: rgb(79, 77, 77);
+    padding: 1rem;
+}
+.notfound-found{
+    color: rgb(84, 82, 103);
+    transform: translateY(45vh);
+    font-weight: 600;
+}

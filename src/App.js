@@ -3,6 +3,7 @@ import './App.css';
 import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
 import NotFound from "./pages/NotFound/NotFound";
+import Post from "./pages/Post/Post";
 
 function App() {
   return (
@@ -13,6 +14,12 @@ function App() {
      </Route>
      <Route exact path = "/login">
        <Login/>
+     </Route>
+     <Route exact path = "/">
+       <Login/>
+     </Route>
+     <Route exact path = "/post/:id">
+       <Post/>
      </Route>
      <Route><NotFound/></Route>
      </Switch>
