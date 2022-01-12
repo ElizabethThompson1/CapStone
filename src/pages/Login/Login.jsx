@@ -1,19 +1,29 @@
 import React, {useState} from 'react';
 import "./Login.css";
 import { Link } from 'react-router-dom';
+import {login} from "../../redux/actions/authAction";
+import { useDispatch } from 'react-redux';
 
 
 const Login = () => {
     const[email,setEmail] = useState("");
     const[password,setPassword] = useState("");  
-    const[showpass,setShowpass] =useState(false);
+    const[showpass,setShowpass] = useState(false);
+    const[userData, setUserData] = useState({email,password});
+    const dispatch = useDispatch();
+
+    const handleSubmit =e => {
+        e.preventDefault();
+        setUserData({...userData,email, password})
+        dispatch(login(userData));
+    }
 
     return (
         <div className='login'>
             <h3 className='login-header'>Friend U</h3>
             <h6 className='login-subheader'>Login</h6>
             <div className='login-data'>
-                <form className='login-dataform'>
+                <form className='login-dataform' onSubmit={handleSubmit}>
                     <input className="login-input" value={email} onChange={(e) => setEmail(e.target.email)} type="email" placeholder="Enter Email"></input>
                     <input className="login-input" value={password} onChange={(e)=> setPassword(e.target.password)} type={showpass ? "type": "password"} placeholder="Enter Password"></input>
                     <div className='showpass-button'>
