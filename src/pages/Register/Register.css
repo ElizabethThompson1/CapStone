@@ -69,8 +69,59 @@
   z-index: 9;
   border: 0;
   transition: box-shadow .2s;
+
 }
 
 .register-button:hover {
   box-shadow: rgba(157, 153, 152, 0.986) 0 3px 8px;
+}
+
+.goto-account{
+    text-align: center;
+    color: white;
+    font-size: .8rem;
+    font-style: italic;
+}
+.register-login{
+    color: rgb(148, 142, 142);
+    font-size: .8rem;
+    font-style: italic;
+    padding-left: .5rem;
+}
+.showpass-registration{
+    position: absolute;
+    background-color: initial;
+  background-image: linear-gradient(-180deg, #545150, #e4dbd9);
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Inter,-apple-system,system-ui,Roboto,"Helvetica Neue",Arial,sans-serif;
+  height: 1.5rem;
+  line-height: 1.3rem;
+  outline: 0;
+  overflow: hidden;
+  pointer-events: auto;
+  position: relative;
+  text-align: center;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: top;
+  white-space: nowrap;
+  width: 3rem;
+  z-index: 9;
+  border: 0;
+  transition: box-shadow .2s;
+
+}
+.showpass-registration:hover {
+    box-shadow: rgba(157, 153, 152, 0.986) 0 3px 8px;
+}
+.showpass-button-registration{
+    position: absolute;
+    top: 25.5rem;
+    left: 45.5rem;
+
 }
