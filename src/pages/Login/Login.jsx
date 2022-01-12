@@ -1,20 +1,26 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import "./Login.css";
 import { Link } from 'react-router-dom';
 import {login} from "../../redux/actions/authAction";
 import { useDispatch } from 'react-redux';
 
 
+
 const Login = () => {
-    const[email,setEmail] = useState("");
-    const[password,setPassword] = useState("");  
-    const[showpass,setShowpass] = useState(false);
-    const[userData, setUserData] = useState({email,password});
+    const initialState = {email: '', password: ''}
+    const [showpass , setShowpass] =useState(false)
+    const [userData, setUserData] = useState(initialState);
     const dispatch = useDispatch();
 
-    const handleSubmit =e => {
+    const {email, password} = userData;
+    const handleChange = (e) => {
+        const {name, value} = e.target;
+        setUserData({...userData , [name]:value})
+    }
+
+    const handleSubmit = (e) =>{
         e.preventDefault();
-        setUserData({...userData,email, password})
+    
         dispatch(login(userData));
     }
 
@@ -24,8 +30,8 @@ const Login = () => {
             <h6 className='login-subheader'>Login</h6>
             <div className='login-data'>
                 <form className='login-dataform' onSubmit={handleSubmit}>
-                    <input className="login-input" value={email} onChange={(e) => setEmail(e.target.email)} type="email" placeholder="Enter Email"></input>
-                    <input className="login-input" value={password} onChange={(e)=> setPassword(e.target.password)} type={showpass ? "type": "password"} placeholder="Enter Password"></input>
+                    <input className="login-input" onChange={handleChange} value={email} name='email' type="email" placeholder="Enter Email"></input>
+                    <input className="login-input" onChange={handleChange} value={password} name='password' type={showpass ? "type": "password"} placeholder="Enter Password"></input>
                     <div className='showpass-button'>
                     <small className='showpass-login' onClick={()=>setShowpass(!showpass)}>show</small>
                     </div>
