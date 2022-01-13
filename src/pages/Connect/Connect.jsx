@@ -1,11 +1,11 @@
 import React from "react";
 
-
-const Alert = () =>{
+const Connect = () =>{
     return(
         <div>
-            <h2>Alert</h2>
+            <h4>Connect</h4>
         </div>
     )
 }
-export default Alert;
+
+export default Connect;

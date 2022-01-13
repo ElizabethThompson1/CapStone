@@ -1,4 +1,4 @@
-const valid = ({username,fullname,email,password,confirmPassword}) =>{
+const valid = ({username,fullname,email,password}) =>{
     const err = {} 
 
     if(!fullname) {
@@ -26,9 +26,6 @@ const valid = ({username,fullname,email,password,confirmPassword}) =>{
         err.password = "length should be greater than 6 characters"
     }
 
-    if(password !== confirmPassword){
-        err.confirmPassword = "Password should be match "
-    }
     
     return {
         errMsg:err,
