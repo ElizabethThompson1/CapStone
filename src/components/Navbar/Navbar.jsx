@@ -40,7 +40,10 @@ const Header = () => {
         }
    },[search,auth.token,dispatch])
 
-    
+    const handleClose = () =>{
+        setSearch("");
+        setUsers([])
+    }
     
 
     return(
@@ -50,11 +53,12 @@ const Header = () => {
             </div>
             <form className="navbar-center">
                     <input type ="text" placeholder="Search Profiles" value={search} onChange={(e)=> setSearch(e.target.value)}/>
-                <SearchIcon/>
+                <SearchIcon style={{opacity: users.length > 0 ? "0" : "1"}}/>
+                <span className="navbar-close" onClick={handleClose} style={{opacity: users.length > 0 ? '1' : '0'}}>&times;</span>
             <div className="navbar-searchusers">
 
             {
-                users.length > 0 && users.map(user =>(
+                search && users.length > 0 && users.map(user =>(
                     <Link to={`profil/${user._id}`} key={user._id}>
                         <UserCard user={user}/>
                     </Link>

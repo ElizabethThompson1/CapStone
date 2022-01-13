@@ -11,13 +11,13 @@
     height: 10vh;
 }
 .navbar-center{
-    background-color: lightgray;
+    background-color: white;
     border-radius: 5px;
     flex: .8;
     position: relative;
 }
 .header-left .MuiSvgIcon-root.active{
-    color:"white" !important;
+    color:"black" !important;
 }
 .navbar-center input{
     background: transparent;
@@ -28,16 +28,25 @@
     border-radius: 5px;
     height: .3rem;
 }
+.navbar-close{
+    position: absolute;
+    top: 2%;
+    right: 10%;
+    color: black;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
 .navbar-center .MuiSvgIcon-root{
     margin-right: .5rem;
     position: absolute;
     top: 20%;
     right: 2%;
-    color: lightgray;
+    color: rgb(5, 4, 4);
 }
 .navbar-searchusers{
+    margin-top: 5px;
     position: absolute;
-    background: lightgray;
+    background: white;
     width: 100%;
 }
 .navbar-left{
