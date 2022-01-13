@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import "./Navbar.css"; 
 import  IconButton  from "@material-ui/core/IconButton";
 import HomeIcon from '@mui/icons-material/Home';
@@ -10,28 +10,64 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LogoutIcon from '@mui/icons-material/Logout';
 import ConnectWithoutContactIcon from '@mui/icons-material/ConnectWithoutContact';
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../redux/actions/authAction";
+import { logout } from "../../redux/actions/authAction";
 import { Link, useLocation } from "react-router-dom";
+import { getDataApi } from "../../utils/fetchData";
+import UserCard from "../UserCard/UserCard";
+
 
 const Header = () => {
+    const [search,setSearch] = useState("");
+    const [users,setUsers] = useState([]);
     const dispatch = useDispatch();
     const {auth} = useSelector(state => state);
-    const {pathname} =useLocation();
+    const{pathname} = useLocation();
 
-    const isActive = (pn) =>{
-        if(pn === pathname) return "active"
-    }
+    useEffect(()=>{
+        if(search && auth.token){
+            getDataApi(`search?username=${search}`,auth.token)
+            .then(res=>setUsers(res.data.users))
+            .catch(err=>{
+                dispatch({
+                type:'ALERT',
+                payload:{
+                    error: err.response.data.msg
+                }
+                })
+            })
+        }else {
+         setUsers([])
+        }
+   },[search,auth.token,dispatch])
+
+    
+    
 
     return(
         <div className="navbar">
-            <div className="navbar-right">
+             <div className="navbar-right">
                 <h3>Friend U</h3>
             </div>
-            <div className="navbar-center">
-                    <input type ="text" placeholder="Search Profiles"/>
+            <form className="navbar-center">
+                    <input type ="text" placeholder="Search Profiles" value={search} onChange={(e)=> setSearch(e.target.value)}/>
                 <SearchIcon/>
+            <div className="navbar-searchusers">
+
+            {
+                users.length > 0 && users.map(user =>(
+                    <Link to={`profil/${user._id}`} key={user._id}>
+                        <UserCard user={user}/>
+                    </Link>
+                ))
+            }
             </div>
+            </form>
             <div className="navbar-left">
+                <Link to={`profile/${auth.user._id}`}> <div className="navbar-lefticon">
+                        <AccountCircleIcon src={auth.user.image}/>
+                        <h4>{auth.user.fullname}</h4>
+                    </div>
+                </Link>
                 <Link to="/">
                     <IconButton>
                         <HomeIcon />
@@ -57,15 +93,12 @@ const Header = () => {
                         <ConnectWithoutContactIcon />
                     </IconButton>
                 </Link>
-                <div className="navbar-lefticon">
-                    <AccountCircleIcon src={auth.user.image}/>
-                    <h4>{auth.user.fullname}</h4>
-                </div>
                 <IconButton>
-                    <LogoutIcon />
+                    <LogoutIcon onClick={()=>dispatch(logout())} />
                 </IconButton>
             </div>
         </div>
+
     )
 }
 export default Header;

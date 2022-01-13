@@ -8,11 +8,13 @@ import {useSelector, useDispatch} from 'react-redux';
 import Home from "./pages/Home/Home";
 import {useEffect} from "react";
 import { refreshToken } from "./redux/actions/authAction";
-import Header from "./components/Navbar";
+import Header from "./components/Navbar/Navbar";
 import Messages from "./pages/Messages/Messages";
 import Notification from "./pages/Notifications/Notifications";
 import Events from "./pages/Events/Events";
 import Connect from "./pages/Connect/Connect";
+import PrivateRouter from "./utils/PrivateRouter";
+import Profile from "./pages/Profile/Profile"
 
 
 function App() {
@@ -38,21 +40,24 @@ function App() {
         <Route exact path = "/login">
           <Login/>
         </Route>
-        <Route exact path = "/message">
+        < PrivateRouter exact path = "/messages">
           <Messages/>
-        </Route>
-        <Route exact path = "/connect">
+        </ PrivateRouter>
+        <PrivateRouter exact path = "/connect">
           <Connect/>
-        </Route>
-        <Route exact path = "/events">
+        </PrivateRouter>
+        <PrivateRouter exact path = "/events">
           <Events/>
-        </Route>
-        <Route exact path = "/notification">
+        </PrivateRouter>
+        <PrivateRouter exact path = "/notifications">
           <Notification/>
-        </Route>
-        <Route exact path = "/post/:id">
+        </PrivateRouter>
+        <PrivateRouter exact path = "/post/:id">
           <Post/>
-        </Route>
+        </PrivateRouter>
+        <PrivateRouter exact path = "/profile/:id">
+          <Profile/>
+        </PrivateRouter>
         <Route><NotFound/></Route>
         </Switch>
       </Router>

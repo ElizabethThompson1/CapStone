@@ -11,12 +11,10 @@
     height: 10vh;
 }
 .navbar-center{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    background-color: lightgray;
     border-radius: 5px;
-    flex: 0.8;
-    background-color: rgb(186, 186, 186);
+    flex: .8;
+    position: relative;
 }
 .header-left .MuiSvgIcon-root.active{
     color:"white" !important;
@@ -32,6 +30,15 @@
 }
 .navbar-center .MuiSvgIcon-root{
     margin-right: .5rem;
+    position: absolute;
+    top: 20%;
+    right: 2%;
+    color: lightgray;
+}
+.navbar-searchusers{
+    position: absolute;
+    background: lightgray;
+    width: 100%;
 }
 .navbar-left{
     display: flex;
@@ -40,4 +47,6 @@
     display: flex;
     align-items: center;
     padding-right: .5rem;
+    padding-top: .7rem;
+    color: black;
 }
