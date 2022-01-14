@@ -75,20 +75,20 @@ export const getProfileUsersPost = ({profil,id, auth}) => async (dispatch) =>{
     }
 }
 
-export const updateProfile = ({editData,avatar, auth}) =>async (dispatch) =>{
+export const updateProfile = ({editData,image, auth}) =>async (dispatch) =>{
     if(!editData.fullname) return dispatch({type:"ALERT", payload:{error:"Add you fullname"}})
     if(editData.fullname.length > 25) return dispatch({type:"ALERT", payload:{error:"Fullname tooo long"}})
-    if(editData.story.length >200) return dispatch({type:"ALERT", payload:{error:"story too long"}})
+    if(editData.bio.length >200) return dispatch({type:"ALERT", payload:{error:"bio too long"}})
 
     try {
         let media;
 
         dispatch({type:"ALERT", payload : {loading: true}})
-        if(avatar) media = await imageupload([avatar])
+        if(image) media = await imageupload([image])
 
         const res = await axios.patch("http://localhost:5000/api/user", {
             ...editData,
-            avatar: avatar ? media[0].secure_url  : auth.user.avatar  
+            image: image ? media[0].secure_url  : auth.user.image  
         },
         {
             headers : {Authorization: auth.token}
@@ -102,7 +102,7 @@ export const updateProfile = ({editData,avatar, auth}) =>async (dispatch) =>{
                     user:{
                         ...auth.user,
                         ...editData,
-                        avatar: avatar ? media[0].secure_url : auth.user.avatar
+                        image: image ? media[0].secure_url : auth.user.image
                     }
             }
         })

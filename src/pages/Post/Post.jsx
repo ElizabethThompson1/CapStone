@@ -18,7 +18,7 @@ import Friends from "../components/Friends";
 import Following from "../components/Following";
 import SingleUserPosts from "../components/SingleUserPosts";
 import SavedPost from "../components/SavedPost";
-import { getDataApi } from "../utils/fetchDataApi";
+import { getDataApi } from "../utils/fetchData";
 import ProfilePhotoShow from "../components/ProfilePhotoShow";
 import ProfileVideoShow from "../components/ProfileVideoShow";
 import ShowFriendsProfile from "../components/ShowFriendsProfile";

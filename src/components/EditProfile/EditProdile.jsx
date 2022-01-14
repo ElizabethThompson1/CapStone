@@ -11,20 +11,19 @@ const EditProfile = ({ user, SetOnEdit }) => {
   const initState = {
     website: "",
     fullname: "",
-    story: "",
-    phone: "",
-    address: "",
+    bio: "",
+
   };
   const [editData, setEditData] = useState(initState);
-  const { website, fullname, story, phone, address } = editData;
-  const [avatar, setAvatar] = useState("");
-  ///why you need here is i will be come back note to me.
+  const { fullname, bio } = editData;
+  const [image, setImage] = useState("");
 
-  const changeavatar = (e) => {
+
+  const changeImage = (e) => {
     const file = e.target.files[0];
     const err = checkimage(file);
     if (err) return dispatch({ type: "ALERT", payload: { error: err } });
-    setAvatar(file);
+    setImage(file);
   };
   useEffect(() => {
     setEditData(user);
@@ -40,7 +39,7 @@ const EditProfile = ({ user, SetOnEdit }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(updateProfile({ editData, avatar, auth }));
+    dispatch(updateProfile({ editData, image, auth }));
     SetOnEdit(false);
   };
   return (
@@ -52,12 +51,12 @@ const EditProfile = ({ user, SetOnEdit }) => {
             className="editprofile-headclose"
             onClick={() => SetOnEdit(false)}
           >
-            X
+            
           </button>
         </div>
-        <div className="editprofile-avatar">
+        <div className="editprofile-image">
           <img
-            src={avatar ? URL.createObjectURL(avatar) : auth.user.avatar}
+            src={image ? URL.createObjectURL(image) : auth.user.image}
             alt=""
           />
           <i className="fas fa-camera" onClick={selectupload}>
@@ -69,7 +68,7 @@ const EditProfile = ({ user, SetOnEdit }) => {
               type="file"
               id="file-upload"
               accept="image/*"
-              onChange={changeavatar}
+              onChange={changeImage}
             />
           </span>
         </div>
@@ -85,46 +84,17 @@ const EditProfile = ({ user, SetOnEdit }) => {
             />
             <p className="editprofile-userdatapara">{fullname.length}/25</p>
           </div>
-          <label htmlFor="address">Address</label>
-          <div className="editprofile-userdataaddress">
+          
+          <label htmlFor="bio">Bio</label>
+          <div className="editprofile-userdatabio">
             <input
-              type="text"
-              value={address}
+              type="bio"
+              value={bio}
               onChange={handleChangeInput}
-              name="address"
-              placeholder="Type your address"
-            />
-          </div>
-          <label htmlFor="website">Website</label>
-          <div className="editprofile-userdatawebsite">
-            <input
-              type="text"
-              value={website}
-              onChange={handleChangeInput}
-              name="website"
-              placeholder="Type your website name"
-            />
-          </div>
-          <label htmlFor="phone">Phone</label>
-          <div className="editprofile-userdataphone">
-            <input
-              type="text"
-              value={phone}
-              onChange={handleChangeInput}
-              name="phone"
-              placeholder="Type your phone number"
-            />
-          </div>
-          <label htmlFor="story">Story</label>
-          <div className="editprofile-userdatastory">
-            <input
-              type="text"
-              value={story}
-              onChange={handleChangeInput}
-              name="story"
+              name="bio"
               placeholder="Type your Bio "
             />
-            <p className="editprofile-userdatapara">{story.length}/200</p>
+            <p className="editprofile-userdatapara">{bio.length}/200</p>
           </div>
           <button onClick={handleSubmit} className="editprofile-userdatabutton">
             Submit

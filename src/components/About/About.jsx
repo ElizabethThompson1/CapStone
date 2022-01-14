@@ -17,7 +17,7 @@ return (
                         
                     </div>
                     <div  className="profileabout-contentcenter">
-                            <p className="profileabout-contentcenter-story">{user.bio}</p>
+                            <p className="profileabout-contentcenter-bio">{user.bio}</p>
                     </div>
                     <div className="profileabout-contentbottom">
                         <div className="profileabout-contentbottominfo">

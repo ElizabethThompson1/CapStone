@@ -45,8 +45,8 @@ const Notifications = () => {
             <Link to={`${dt.url}`} onClick={() => isReadNotify(dt)}>
               <div className="notificationdata-top">
                 <img
-                  className="notificationdata-topavatar"
-                  src={dt?.user?.avatar}
+                  className="notificationdata-topimage"
+                  src={dt?.user?.image}
                   alt=""
                 />
                 <div className="notificationdata-topsecond">
