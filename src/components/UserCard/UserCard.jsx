@@ -5,7 +5,6 @@ import {Link} from 'react-router-dom'
 const UserCard = ({user,handleClose}) =>{
 
     const handleCloseAll =() =>{
-
         if(handleClose) handleClose();
     }
 

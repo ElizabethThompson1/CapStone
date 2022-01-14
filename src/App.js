@@ -1,4 +1,4 @@
-import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
+import {BrowserRouter as Router,Switch,Route,Redirect} from "react-router-dom";
 import './App.css';
 import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
@@ -20,6 +20,7 @@ import Profile from "./pages/Profile/Profile"
 function App() {
   const{auth} = useSelector(state => state);
   const dispatch = useDispatch();
+  const login = localStorage.getItem('login');
   
 
   useEffect(() =>{
@@ -55,9 +56,10 @@ function App() {
         <PrivateRouter exact path = "/post/:id">
           <Post/>
         </PrivateRouter>
-        <PrivateRouter exact path = "/profile/:id">
+        <Route exact path = "/profile/:id">
+        {login ? <Profile/> : <Redirect to="/"/>}
           <Profile/>
-        </PrivateRouter>
+        </Route>
         <Route><NotFound/></Route>
         </Switch>
       </Router>

@@ -19,48 +19,56 @@ import UserCard from "../UserCard/UserCard";
 const Header = () => {
     const [search,setSearch] = useState("");
     const [users,setUsers] = useState([]);
+    const[load,setLoad] = useState(false)
     const dispatch = useDispatch();
     const {auth} = useSelector(state => state);
     const{pathname} = useLocation();
 
-    useEffect(()=>{
-        if(search && auth.token){
-            getDataApi(`search?username=${search}`,auth.token)
-            .then(res=>setUsers(res.data.users))
-            .catch(err=>{
-                dispatch({
-                type:'ALERT',
-                payload:{
-                    error: err.response.data.msg
-                }
-                })
-            })
-        }else {
-         setUsers([])
-        }
-   },[search,auth.token,dispatch])
+    const isActive = (pn) =>{
+         if(pn === pathname) return "active"
+    }
 
+  
     const handleClose = () =>{
         setSearch("");
         setUsers([])
     }
 
-    
+    const handleSearch =async (e) => {
+        e.preventDefault();
+        if(!search) return;
+        try{
+            setLoad(true)
+            const res = await getDataApi(`search?username=${search}`,auth.token)
+            setSearch(res.data.users)
+            setLoad(false)
+        }catch (err){
+            dispatch({
+                type:'ALERT',
+                payload:{
+                    error: err.response.data.msg
+                }
+                
+            })
+        }
+    }    
 
     return(
         <div className="navbar">
              <div className="navbar-right">
                 <h3>Friend U</h3>
             </div>
-            <form className="navbar-center">
+            <form className="navbar-center" onSubmit={handleSearch}>
                     <input type ="text" placeholder="Search Profiles" value={search} onChange={(e)=> setSearch(e.target.value)}/>
                 <SearchIcon style={{opacity: users.length > 0 ? "0" : "1"}}/>
                 <span className="navbar-close" onClick={handleClose} style={{opacity: users.length > 0 ? '1' : '0'}}>&times;</span>
+                <button type="submit" style={{display:'none'}}>Search</button>
             <div className="navbar-searchusers">
+                {load && <small>Loadind...</small>}
 
             {
                 search && users.length > 0 && users.map(user =>(
-                    <UserCard user={user} key={user._id} handleClose={handleClose}/>
+                    <UserCard user={user} key={user._id} handleClose={handleClose} style={{opacity: users.length > 0 ? '0' : '1'}}/>
 
                 ))
             }
@@ -74,27 +82,27 @@ const Header = () => {
                 </Link>
                 <Link to="/">
                     <IconButton>
-                        <HomeIcon />
+                        <HomeIcon className={`${isActive ("/")}`}/>
                     </IconButton>
                 </Link>
                 <Link to="/messages">
                     <IconButton>
-                        <ForumTwoToneIcon />
+                        <ForumTwoToneIcon className={`${isActive ("/messages")}`} />
                     </IconButton>
                 </Link>
                 <Link to="/notifications">
                     <IconButton>
-                        <NotificationsActiveRoundedIcon />
+                        <NotificationsActiveRoundedIcon className={`${isActive ("/notifications")}`} />
                     </IconButton>
                 </Link>
                 <Link to="/events">
                     <IconButton>
-                        <TravelExploreTwoToneIcon />
+                        <TravelExploreTwoToneIcon className={`${isActive ("/events")}`}/>
                     </IconButton>
                 </Link>
                 <Link to="/connect">
                     <IconButton>
-                        <ConnectWithoutContactIcon />
+                        <ConnectWithoutContactIcon className={`${isActive ("/connect")}`}/>
                     </IconButton>
                 </Link>
                 <IconButton>
