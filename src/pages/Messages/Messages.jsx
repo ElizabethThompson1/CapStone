@@ -1,7 +1,7 @@
 import React from 'react'
 import LeftSideMessage from '../components/LeftSideMessage';
 import RightSideMessage from '../components/RightSideMessage';
-import "../styles/Messages.css"
+
 
 const Messages = ( ) =>{
     return(

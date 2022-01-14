@@ -1,5 +1,5 @@
 import React from 'react';
-import "../styles/ProfileAbout.css"
+
 
 import moment from 'moment'
 

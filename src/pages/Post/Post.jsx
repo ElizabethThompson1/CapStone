@@ -1,4 +1,4 @@
-import "../styles/Profile.css";
+
 import Info from "../components/Info";
 import Posts from "../components/Posts";
 import About from "../components/About";

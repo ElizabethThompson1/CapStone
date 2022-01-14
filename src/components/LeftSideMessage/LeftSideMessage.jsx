@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 import {useSelector, useDispatch} from "react-redux"
-import {getDataApi} from "../utils/fetchDataApi"
+import {getDataApi} from "../utils/fetchData"
 import UserCardMessages from './UserCardMessages';
 import {AddUser, getConversations } from "../redux/actions/messageActions"
 import {useHistory} from "react-router-dom"
