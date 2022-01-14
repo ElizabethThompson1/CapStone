@@ -22,11 +22,7 @@ const Register = () => {
         setUserData({...userData, [name]:value})
     }
 
-    // useEffect(() =>{
-    //     if(authReducer.token){
-    //         history.pushState('/')
-    //     }
-    // },[auth.token,history])
+
 
     const handleSubmit = (e) =>{
         e.preventDefault();
