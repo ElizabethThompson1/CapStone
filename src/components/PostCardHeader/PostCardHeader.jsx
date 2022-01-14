@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import "../styles/PostCard.css";
 import moment from "moment";
 import { useDispatch, useSelector } from "react-redux";
 import { ALERT_TYPES } from "../redux/actions/alertActions";

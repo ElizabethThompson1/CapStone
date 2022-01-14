@@ -4,7 +4,6 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import CommentIcon from "@material-ui/icons/Comment";
 import SaveAltIcon from "@material-ui/icons/SaveAlt";
 import { Link } from "react-router-dom";
-import "../styles/PostCard.css";
 import LikePost from "./LikePost";
 import { useSelector, useDispatch } from "react-redux";
 import {

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styles/PostCard.css";
+
 
 const PostCardBody = ({ pos }) => {
   const [readMore, setreadMore] = useState(false);

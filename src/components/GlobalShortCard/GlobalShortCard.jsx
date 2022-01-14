@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/GlobalShortCard.css";
+
 const GlobalShortCard = ({ friend }) => {
   console.log(friend);
   return (
