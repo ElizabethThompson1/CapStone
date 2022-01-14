@@ -1,7 +1,7 @@
 import React, {useEffect,useState} from "react";
 import { getProfileUsers } from "../../redux/actions/ProfileActions";
 import { useParams } from "react-router-dom";
-import Bio from "../../components/Info/Bio";
+import Bio from "../../components/Info/Info";
 import Posts from "../../components/Post/Post";
 import About from "../../components/About/About";
 import { useSelector } from "react-redux";
