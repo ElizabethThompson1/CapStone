@@ -1,4 +1,4 @@
-import {postDataApi} from "../../utils/fetchData";
+import {postDataApi} from '../../utils/fetchData';
 import {ALERT_TYPES} from './alertActions';
 import valid from '../../utils/valid';
 
@@ -140,4 +140,3 @@ export const logout = () => async (dispatch) =>{
     }
    
 }
-

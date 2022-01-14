@@ -1,10 +1,13 @@
 import {PROFILE_TYPES} from '../actions/ProfileActions';
-
+import {EditData} from "../actions/alertActions"
+// import { POST_TYPES } from '../actions/postActions';
 
 const initialState = {
     loading: false,
     users: [],
-    posts : []
+    posts : [],
+    ids:[],
+    userposts:[]
 }
 
 export const profileReducer = (state = initialState , action) => {
@@ -18,10 +21,34 @@ export const profileReducer = (state = initialState , action) => {
         case PROFILE_TYPES.GET_USER:
             return{
                 ...state,
-                users:[...state.users, action.payload.user]
+                users:[...state.users, action.payload]
             }
+        case PROFILE_TYPES.GET_IDS:
+                return{
+                    ...state,
+                    ids: [...state.ids, action.payload]
+                }
+        case PROFILE_TYPES.USERPOSTS:
+                return{
+                    ...state,
+                    userposts: [...state.userposts, action.payload]
+                }
+              
+       
+        case PROFILE_TYPES.FRIEND:
+            return{
+                ...state,
+                users: EditData(state.users, action.payload._id, action.payload )
+                    
+            
+            }
+        case PROFILE_TYPES.UNFRIEND:
+                return{
+                    ...state,
+                    users: EditData(state.users, action.payload._id, action.payload )
+                }
         default:
-           return state
+            return state
     }
 }
 

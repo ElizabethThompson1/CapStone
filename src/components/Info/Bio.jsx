@@ -1,23 +1,9 @@
-import React, {useEffect, useState} from "react";
-import { useParams } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+
 import "./Bio.css";
 
-const Bio = () => {
-    const[userData,setUserData] =useState([]);
-    const {id} = useParams();
-    const {auth}= useSelector(state=> state);
-    const dispatch = useDispatch();
 
-    console.log(userData)
-
-    useEffect(() =>{
-        if( auth && auth.user && id === auth.user._id){
-            setUserData([auth.user])
-        }
-    },[id,auth.user, auth])
-
+const Bio = ({userData, dispatch, auth, profile,  id}) => {
+    
     return(
         <div className="profilebio">
             {userData.length > 0 && userData.map((user =>

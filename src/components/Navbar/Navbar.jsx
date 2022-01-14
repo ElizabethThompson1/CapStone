@@ -17,41 +17,40 @@ import UserCard from "../UserCard/UserCard";
 
 
 const Header = () => {
+    const [load,setLoad] = useState(false)
     const [search,setSearch] = useState("");
     const [users,setUsers] = useState([]);
-    const[load,setLoad] = useState(false)
     const dispatch = useDispatch();
     const {auth} = useSelector(state => state);
     const{pathname} = useLocation();
+    
 
-    const isActive = (pn) =>{
-         if(pn === pathname) return "active"
+    const handleSearch = async (e) =>{
+        e.preventDefault();
+        if(!search) return;
+  
+        try {
+           setLoad(true)
+           const res = await getDataApi(`search?username=${search}`,auth.token);
+           setUsers(res.data.users)
+           setLoad(false)
+        } catch (err) {
+           dispatch({
+              type:'ALERT',
+              payload:{
+                 error: err.response.data.msg
+              }
+           })
+        }
+        
     }
 
-  
     const handleClose = () =>{
         setSearch("");
         setUsers([])
     }
 
-    const handleSearch =async (e) => {
-        e.preventDefault();
-        if(!search) return;
-        try{
-            setLoad(true)
-            const res = await getDataApi(`search?username=${search}`,auth.token)
-            setSearch(res.data.users)
-            setLoad(false)
-        }catch (err){
-            dispatch({
-                type:'ALERT',
-                payload:{
-                    error: err.response.data.msg
-                }
-                
-            })
-        }
-    }    
+    
 
     return(
         <div className="navbar">
@@ -64,8 +63,7 @@ const Header = () => {
                 <span className="navbar-close" onClick={handleClose} style={{opacity: users.length > 0 ? '1' : '0'}}>&times;</span>
                 <button type="submit" style={{display:'none'}}>Search</button>
             <div className="navbar-searchusers">
-                {load && <small>Loadind...</small>}
-
+            {load && <h3>Loading...</h3>}
             {
                 search && users.length > 0 && users.map(user =>(
                     <UserCard user={user} key={user._id} handleClose={handleClose} style={{opacity: users.length > 0 ? '0' : '1'}}/>
@@ -82,27 +80,27 @@ const Header = () => {
                 </Link>
                 <Link to="/">
                     <IconButton>
-                        <HomeIcon className={`${isActive ("/")}`}/>
+                        <HomeIcon />
                     </IconButton>
                 </Link>
                 <Link to="/messages">
                     <IconButton>
-                        <ForumTwoToneIcon className={`${isActive ("/messages")}`} />
+                        <ForumTwoToneIcon />
                     </IconButton>
                 </Link>
                 <Link to="/notifications">
                     <IconButton>
-                        <NotificationsActiveRoundedIcon className={`${isActive ("/notifications")}`} />
+                        <NotificationsActiveRoundedIcon />
                     </IconButton>
                 </Link>
                 <Link to="/events">
                     <IconButton>
-                        <TravelExploreTwoToneIcon className={`${isActive ("/events")}`}/>
+                        <TravelExploreTwoToneIcon />
                     </IconButton>
                 </Link>
                 <Link to="/connect">
                     <IconButton>
-                        <ConnectWithoutContactIcon className={`${isActive ("/connect")}`}/>
+                        <ConnectWithoutContactIcon />
                     </IconButton>
                 </Link>
                 <IconButton>
