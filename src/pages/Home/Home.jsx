@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../../components/Navbar/Navbar";
+import Bio from "../../components/Info/Bio";
 
 const Home = () => {
     return(

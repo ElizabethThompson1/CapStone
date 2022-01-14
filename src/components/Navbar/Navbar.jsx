@@ -44,6 +44,7 @@ const Header = () => {
         setSearch("");
         setUsers([])
     }
+
     
 
     return(
@@ -59,9 +60,8 @@ const Header = () => {
 
             {
                 search && users.length > 0 && users.map(user =>(
-                    <Link to={`profil/${user._id}`} key={user._id}>
-                        <UserCard user={user}/>
-                    </Link>
+                    <UserCard user={user} key={user._id} handleClose={handleClose}/>
+
                 ))
             }
             </div>

@@ -1,9 +1,14 @@
 import React from "react";
+import Bio from "../../components/Info/Bio";
+import Posts from "../../components/Post/Post";
 
 const Profile = () =>{
     return(
         <div>
-            <h4>Profile</h4>
+            <div className="profile">
+                <Bio/>
+                <Posts/>
+            </div>
         </div>
     )
 }

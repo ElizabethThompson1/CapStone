@@ -13,7 +13,7 @@ const UserCard = ({user,handleClose}) =>{
 
         <div>
             <div style={{display:'flex', padding:'10px', alignItems:'center', borderBottom:'1px solid rgb(149, 149, 231)'}}>
-            <Link to={`/profile/${user?._id}`} onClick={handleCloseAll} style={{display:'flex', padding:'10px', alignItems:'center'}} >
+            <Link to={`/profile/${user?._id}`} onClick={handleCloseAll} style={{display:'flex', padding:'10px', alignItems:'center' }} >
             <AccountCircleIcon src={user?.image}/>
             <div style={{marginLeft:'6px', color:'black'}}>
                 <span style={{display:'block'}}>{user?.fullname}</span>
