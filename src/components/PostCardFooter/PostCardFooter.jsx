@@ -4,14 +4,9 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import CommentIcon from "@material-ui/icons/Comment";
 import SaveAltIcon from "@material-ui/icons/SaveAlt";
 import { Link } from "react-router-dom";
-import LikePost from "./LikePost";
+import LikePost from "../LikePost/LikePost";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  unlikepost,
-  likepost,
-  savedPost,
-  unsavedPost,
-} from "../redux/actions/postActions";
+import {unlikepost, likepost, savedPost,unsavedPost,} from "../../redux/actions/PostAction";
 
 const PostCardFooter = ({ pos }) => {
   const [isLike, setIsLike] = useState(false);

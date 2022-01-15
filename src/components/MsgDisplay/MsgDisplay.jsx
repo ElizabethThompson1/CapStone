@@ -7,13 +7,7 @@ const imageshow = (src) => {
     </>
   );
 };
-const videoshow = (src) => {
-  return (
-    <>
-      <video controls src={src} alt="" className="statusmsg-middleimages" />
-    </>
-  );
-};
+
 
 const MsgDisplay = ({ user, msg }) => {
   return (

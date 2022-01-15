@@ -1,6 +1,6 @@
 import React from "react";
-import GlobalShortCard from "./GlobalShortCard";
-import "../styles/GlobalShortCard.css";
+import GlobalShortCard from "../GlobalShortCard/GlobalShortCard";
+
 const ShowFollowingsProfile = ({ user }) => {
   console.log(user);
   return (

@@ -1,10 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import PhotoIcon from "@material-ui/icons/Photo";
-import CameraIcon from "@material-ui/icons/Camera";
 import { useDispatch } from "react-redux";
-import { createpost, updatepost } from "../redux/actions/postActions";
-import { ALERT_TYPES } from "../redux/actions/alertActions";
+import { createpost, updatepost } from "../../redux/actions/PostAction";
+import { ALERT_TYPES } from "../../redux/actions/alertActions";
 
 const Status = () => {
   const { auth, status, socket } = useSelector((state) => state);
@@ -129,7 +128,7 @@ const Status = () => {
     <div className={status.edit ? "editstatus" : "status"}>
       <form onSubmit={handleSubmit}>
         <div className="status-header">
-          <img src={auth?.user.avatar} alt="" />
+          <img src={auth?.user.image} alt="" />
           <h4>Status</h4>
         </div>
         <div className="status-middle">
@@ -203,7 +202,7 @@ const Status = () => {
               <PhotoIcon onClick={handlecameraimage} />
             ) : (
               <>
-                <CameraIcon onClick={handleStream} />
+
                 <PhotoIcon onClick={handleuploadinput} />
               </>
             )}

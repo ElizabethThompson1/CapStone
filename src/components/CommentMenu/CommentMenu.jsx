@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteComment } from "../redux/actions/commentActions";
+import { deleteComment } from "../../redux/actions/commentAction";
 
 
 const CommentMenuItem = ({ comment, pos, auth, setonEdit }) => {

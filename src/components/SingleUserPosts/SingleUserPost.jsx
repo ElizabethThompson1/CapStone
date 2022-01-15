@@ -1,9 +1,9 @@
 import React from "react";
-import InputPostComment from "./InputPostComment";
-import PostCardBody from "./PostCardBody";
-import PostCardFooter from "./PostCardFooter";
-import PostCardHeader from "./PostCardHeader";
-import PostComments from "./PostComments";
+import InputPostComment from "../InputPostComment/InputPostComment";
+import PostCardBody from "../PostCardBody/PostCardBody";
+import PostCardFooter from "../PostCardFooter/PostCardFooter";
+import PostCardHeader from "../PostCardHeader/PostCardHeader";
+import PostComments from "../PostComments/PostComment";
 
 const SingleUserPosts = ({  post }) => {
  

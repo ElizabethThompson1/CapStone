@@ -1,6 +1,8 @@
 import { DeleteData} from "./alertActions"
-import {getDataApi} from '../../utils/fetchData'
+import {getDataApi, patchDataApi} from '../../utils/fetchData';
+import {imageupload} from "../../utils/ImageUpload";
 import axios from "axios";
+import { createNotify,removeNotify } from "./notifyAction";
 
 
 export const PROFILE_TYPES = {

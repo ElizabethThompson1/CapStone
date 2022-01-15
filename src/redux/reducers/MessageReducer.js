@@ -1,4 +1,4 @@
-import {MESS_TYPE} from "../actions/messageActions";
+import {MESS_TYPE} from "../actions/Message";
 
 
 const inititalState = {

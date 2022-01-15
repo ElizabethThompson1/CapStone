@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import EditProfile from "./EditProfile";
-import GlobalFriendBtn from "./GlobalFriendBtn";
+import EditProfile from "../EditProfile/EditProdile";
+import GlobalFriendBtn from "../GlobalFriendBtn/GlobalFriendBtn"
 
-const Info = ({ userData, auth, post, id }) => {
+const Info = ({ userData, auth, post }) => {
 
 
   const [onEdit, SetOnEdit] = useState(false);

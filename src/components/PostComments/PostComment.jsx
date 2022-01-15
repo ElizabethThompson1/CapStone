@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import PostCommentDisplay from "./PostCommentDisplay";
+import PostCommentDisplay from "../PostCommentDisplay/PostCommentDisplay";
 
 const PostComments = ({ pos }) => {
   const [comments, setComments] = useState([]);

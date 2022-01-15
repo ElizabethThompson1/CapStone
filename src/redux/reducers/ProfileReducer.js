@@ -1,6 +1,6 @@
 import {PROFILE_TYPES} from '../actions/ProfileActions';
 import {EditData} from "../actions/alertActions"
-// import { POST_TYPES } from '../actions/postActions';
+
 
 const initialState = {
     loading: false,

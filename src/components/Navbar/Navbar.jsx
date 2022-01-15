@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import "./Navbar.css"; 
 import  IconButton  from "@material-ui/core/IconButton";
 import HomeIcon from '@mui/icons-material/Home';
@@ -73,7 +73,7 @@ const Header = () => {
             </div>
             </form>
             <div className="navbar-left">
-                <Link to={`profile/${auth.user._id}`}> <div className="navbar-lefticon">
+                <Link to={`/profile/${users._id}`} > <div className="navbar-lefticon">
                         <AccountCircleIcon src={auth.user.image}/>
                         <h4>{auth.user.fullname}</h4>
                     </div>

@@ -3,14 +3,11 @@ import { Link } from "react-router-dom";
 import moment from "moment";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import { useSelector, useDispatch } from "react-redux";
-import CommentMenuItem from "./CommentMenuItem";
-import LikePost from "./LikePost";
-import {
-  updateComment,
-  likecomment,
-  unlikecomment,
-} from "../redux/actions/commentActions";
-import InputPostComment from "./InputPostComment";
+import CommentMenuItem from "../CommentMenu/CommentMenu";
+import LikePost from "../LikePost/LikePost";
+
+import { updateComment, likecomment, unlikecomment,} from "../../redux/actions/commentAction";
+import InputPostComment from "../InputPostComment/InputPostComment";
 
 const PostCommentCard = ({ children, comment, pos, commentId }) => {
   const { auth } = useSelector((state) => state);
@@ -66,11 +63,11 @@ const PostCommentCard = ({ children, comment, pos, commentId }) => {
             <Link to={`profile/${comment.user?._id}`}>
               <div className="postCommentCarduserinfo">
                 <img
-                  className="postCommentCardavatar"
-                  src={comment.user.avatar}
+                  className="postCommentCardimage"
+                  src={comment.user.image}
                   alt={comment.user.fullname}
                 />
-                <div className="postCommentCardavatarinfo">
+                <div className="postCommentCardimageinfo">
                   <h4 className="postCommentCardfullname">
                     {comment.user.fullname}
                   </h4>
@@ -141,22 +138,22 @@ const PostCommentCard = ({ children, comment, pos, commentId }) => {
                 </>
               )}
             </div>
-            <div className="postCommentCardavatarcommentcontent-likes">
-              <p className="postCommentCardavatarcommentcontent-likescount">
+            <div className="postCommentCardimagecommentcontent-likes">
+              <p className="postCommentCardimagecommentcontent-likescount">
                 {comment.likes.length}
               </p>{" "}
               <FavoriteBorderIcon style={{ color: "red" }} />
               {onEdit ? (
                 <>
                   <p
-                    className="postCommentCardavatarcommentcontent-reply"
+                    className="postCommentCardimagecommentcontent-reply"
                     onClick={() => handleupdatecomment()}
                     style={{ cursor: "pointer" }}
                   >
                     update
                   </p>
                   <p
-                    className="postCommentCardavatarcommentcontent-reply"
+                    className="postCommentCardimagecommentcontent-reply"
                     onClick={() => setonEdit(false)}
                     style={{ cursor: "pointer" }}
                   >
@@ -165,7 +162,7 @@ const PostCommentCard = ({ children, comment, pos, commentId }) => {
                 </>
               ) : (
                 <p
-                  className="postCommentCardavatarcommentcontent-reply"
+                  className="postCommentCardimagecommentcontent-reply"
                   style={{ cursor: "pointer" }}
                   onClick={handleReply}
                 >

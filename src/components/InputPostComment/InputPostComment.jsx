@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { createComment } from "../redux/actions/commentActions";
+import { createComment } from "../../redux/actions/commentAction";
 
 const InputPostComment = ({ children, pos, onReply, setOnReply }) => {
   const { auth, socket } = useSelector((state) => state);

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { updateProfile } from "../redux/actions/profileActions";
+import { updateProfile } from "../../redux/actions/ProfileActions";
 
-import { checkimage } from "../utils/imageupload";
+import { checkimage } from "../../utils/ImageUpload";
 
 const EditProfile = ({ user, SetOnEdit }) => {
   const { auth } = useSelector((state) => state);

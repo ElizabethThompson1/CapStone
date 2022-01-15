@@ -1,9 +1,9 @@
 import {ALERT_TYPES} from '../actions/alertActions';
 
 
-const alertReducer = (state=false, action) => {
+const socketReducer = (state= [], action) => {
     switch (action.type){
-        case ALERT_TYPES.STATUS:
+        case ALERT_TYPES.SOCKET:
             return action.payload;
         default:
             return state;
@@ -12,4 +12,4 @@ const alertReducer = (state=false, action) => {
     }
 }
 
-export default alertReducer;
+export default socketReducer;

@@ -1,18 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
-import UserCardMessages from "./UserCardMessages";
+import UserCardMessages from "../UserCardMessages/UserCardMessage";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import MsgDisplay from "./MsgDisplay";
+import MsgDisplay from "../MsgDisplay/MsgDisplay";
 import SendIcon from "@material-ui/icons/Send";
 import DeleteIcon from "@material-ui/icons/Delete";
 import ImageIcon from "@material-ui/icons/Image";
-import { imageupload } from "../utils/imageupload";
-import {
-  addMessage,
-  getMessages,
-  deleteMessage,
-} from "../redux/actions/messageActions";
-import LoadIcon from "../images/loading.gif";
+import { imageupload } from "../../utils/ImageUpload";
+import { addMessage, getMessages, deleteMessage,} from "../../redux/actions/Message";
+
 
 const RightSideMessage = () => {
   const [user, setUser] = useState([]);
@@ -64,13 +60,7 @@ const RightSideMessage = () => {
   const handleDeleteMsg = (data) => {
     dispatch(deleteMessage({ message, data, auth }));
   };
-  const videoshow = (src) => {
-    return (
-      <>
-        <video controls src={src} alt="" className="statusmsg-middleimages" />
-      </>
-    );
-  };
+  
   const deleteimage = (inde) => {
     const newArrimage = [...media];
     newArrimage.splice(inde, 1);
@@ -204,7 +194,7 @@ const RightSideMessage = () => {
 
           {loadMedia && (
             <div>
-              <img src={LoadIcon} alt="loading" />
+              <h3>Loading...</h3>
             </div>
           )}
         </div>

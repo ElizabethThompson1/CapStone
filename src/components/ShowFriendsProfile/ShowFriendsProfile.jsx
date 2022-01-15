@@ -1,5 +1,5 @@
 import React from "react";
-import GlobalShortCard from "./GlobalShortCard";
+import GlobalShortCard from "../GlobalShortCard/GlobalShortCard";
 
 const ShowFriendsProfile = ({ user }) => {
   console.log(user);

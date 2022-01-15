@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addfriends, unfriends } from "../redux/actions/profileActions";
+import { addfriends, unfriends } from "../../redux/actions/ProfileActions"
 
 const FriendBtn = ({ classbtn, user }) => {
   const { auth, profile, socket } = useSelector((state) => state);

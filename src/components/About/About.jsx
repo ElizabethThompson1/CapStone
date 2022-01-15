@@ -1,10 +1,8 @@
 import React from 'react';
-
-
 import moment from 'moment'
 
 
-const About = ({userData, dispatch, auth, profile,  id} ) =>{
+const About = ({userData} ) =>{
 
 
 

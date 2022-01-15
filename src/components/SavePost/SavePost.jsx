@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { getDataApi } from "../utils/fetchData";
-import SavePostCard from "./SavePostCard";
+import { getDataApi } from "../../utils/fetchData";
+import SavePostCard from "../SavePostCard/SavePostCard";
 
 
 const SavedPost = ({ auth }) => {

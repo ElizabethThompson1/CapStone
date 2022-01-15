@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import moment from "moment";
 import { useDispatch, useSelector } from "react-redux";
-import { ALERT_TYPES } from "../redux/actions/alertActions";
-import { deletePost } from "../redux/actions/postActions";
-import { BASE_URL } from "../utils/config";
+import { ALERT_TYPES } from "../../redux/actions/alertActions";
+import { deletePost } from "../../redux/actions/PostAction";
+import { BASE_URL } from "../../utils/config";
 
 const PostCardHeader = ({ pos }) => {
   const { auth, socket } = useSelector((state) => state);
@@ -32,8 +32,8 @@ const PostCardHeader = ({ pos }) => {
       <Link to={`/profile/${pos.user._id}`}>
         <div className="postcardheadertop">
           <img
-            className="postcardheadertopavatar"
-            src={pos.user?.avatar}
+            className="postcardheadertopimage"
+            src={pos.user?.image}
             alt={pos.user.fullname}
           />
 

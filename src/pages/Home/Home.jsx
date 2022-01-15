@@ -1,8 +1,8 @@
 import React from 'react';
-import Banner from '../components/Banner';
-import HomeLeft from '../components/HomeLeft';
-import HomeMid from '../components/HomeMid';
-import HomeRight from '../components/HomeRight';
+import Banner from '../../components/Banner/Banner';
+import HomeLeft from '../../components/HomeLeft/HomeLeft';
+import HomeMid from "../../components/HomeMid/HomeMid";
+
 
 
 const Home = () =>{
@@ -17,9 +17,6 @@ const Home = () =>{
                 </div>
                 <div className="homemain-contentmid">
                     <HomeMid/>
-                </div>
-                <div className="homemain-contentright">
-                    <HomeRight/>
                 </div>
             </div>
             

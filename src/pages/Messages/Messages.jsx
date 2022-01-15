@@ -1,6 +1,6 @@
 import React from 'react'
-import LeftSideMessage from '../components/LeftSideMessage';
-import RightSideMessage from '../components/RightSideMessage';
+import LeftSideMessage from '../../components/LeftSideMessage/LeftSideMessage';
+import RightSideMessage from '../../components/RightSideMessage/RightSideMessage';
 
 
 const Messages = ( ) =>{

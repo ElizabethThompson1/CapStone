@@ -1,11 +1,6 @@
-import { imageupload } from "../../utils/imageupload";
-import {
-  getDataApi,
-  postDataApi,
-  patchDataApi,
-  deleteDataApi,
-} from "../../utils/fetchData";
-import { createNotify, removeNotify } from "./notifyActions";
+import { imageupload } from "../../utils/ImageUpload";
+import {getDataApi, postDataApi, patchDataApi, deleteDataApi,} from "../../utils/fetchData";
+import { createNotify, removeNotify } from "./notifyAction";
 
 export const POST_TYPES = {
   CREATE_POST: "CREATE_POST",

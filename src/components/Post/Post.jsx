@@ -1,10 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import InputPostComment from "./InputPostComment";
-import PostCardBody from "./PostCardBody";
-import PostCardFooter from "./PostCardFooter";
-import PostCardHeader from "./PostCardHeader";
-import PostComments from "./PostComments";
+import InputPostComment from "../InputPostComment/InputPostComment";
+import PostCardBody from "../PostCardBody/PostCardBody";
+import PostCardFooter from "../PostCardFooter/PostCardFooter";
+import PostCardHeader from "../PostCardHeader/PostCardHeader";
+import PostComments from "../PostComments/PostComment";
 
 const Posts = () => {
   const { homePost } = useSelector((state) => state);

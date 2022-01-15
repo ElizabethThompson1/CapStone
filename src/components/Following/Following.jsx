@@ -1,5 +1,5 @@
 import React from "react";
-import GlobalCard from "./GlobalCard";
+import GlobalCard from "../GlobalCard/GlobalCard";
 
 const FollowingCard = ({ user }) => {
   return (

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getDataApi } from "../utils/fetchData";
-import UserCardMessages from "./UserCardMessages";
-import { AddUser, getConversations } from "../redux/actions/messageActions";
+import { getDataApi } from "../../utils/fetchData";
+import UserCardMessages from "../UserCardMessages/UserCardMessage";
+import { AddUser, getConversations } from "../../redux/actions/Message";
 import { useHistory } from "react-router-dom";
 import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
 

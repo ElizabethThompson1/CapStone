@@ -1,5 +1,5 @@
 import React from "react";
-import FriendsCard from "./FriendsCard";
+import FriendsCard from "../FriendsCard/FriendsCard";
 
 const Friends = ({ userData, dispatch, profile, auth, id }) => {
   return (

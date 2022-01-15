@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/ProfilePhotoShow.css";
+
 
 const ProfilePhotoShow = ({ photos }) => {
   console.log(photos);
@@ -24,15 +24,8 @@ const ProfilePhotoShow = ({ photos }) => {
             .map((item) => (
               <>
                 {" "}
-                {item[0].secure_url.match(/video/i) ? (
-                  ""
-                ) : (
-                  <img
-                    className="profilephotsshowimages"
-                    src={item[0].secure_url}
-                    alt=""
-                  />
-                )}
+                {item[0].secure_url.match(/video/i) ? ( "") : (
+                  <img className="profilephotsshowimages" src={item[0].secure_url} alt="" />)}
               </>
             ))}
       </div>

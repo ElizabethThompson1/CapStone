@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import PostCommentCard from "./PostCommentCard";
+import PostCommentCard from "../PostCommentCard/PostCommentCard";
 
 const PostCommentDisplay = ({ comment, pos, newReplay }) => {
   const [showRep, setshowRep] = useState([]);

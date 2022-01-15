@@ -1,5 +1,6 @@
 import { postDataApi , deleteDataApi, getDataApi} from "../../utils/fetchData"
-import { DeleteData} from "./alertActions"
+import  {DeleteData} from "./alertActions";
+
 
 
 export const MESS_TYPE = {
