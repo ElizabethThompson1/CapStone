@@ -4,6 +4,7 @@ import PhotoIcon from "@material-ui/icons/Photo";
 import { useDispatch } from "react-redux";
 import { createpost, updatepost } from "../../redux/actions/PostAction";
 import { ALERT_TYPES } from "../../redux/actions/alertActions";
+import "./Status.css"
 
 const Status = () => {
   const { auth, status, socket } = useSelector((state) => state);
@@ -125,110 +126,95 @@ const Status = () => {
     );
   };
   return (
-    <div className={status.edit ? "editstatus" : "status"}>
-      <form onSubmit={handleSubmit}>
-        <div className="status-header">
-          <img src={auth?.user.image} alt="" />
-          <h4>Status</h4>
-        </div>
-        <div className="status-middle">
-          <textarea
-            type="text"
-            placeholder="Share your thoughts"
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-            rows="5"
-            col="1000"
-          />
-          <small>{content.length}</small>
-        </div>
-        <div className="status-imagesdiv">
-          {images &&
-            images.map((image, index) => (
-              <div className="status-middleimagecontainer">
-                {image.camera ? (
-                  imageshow(image.camera)
-                ) : image.secure_url ? (
-                  <>
-                    {image.secure_url.match(/video/i)
-                      ? videoshow(image.secure_url)
-                      : imageshow(image.secure_url)}
-                  </>
-                ) : (
-                  <>
-                    {image.type.match(/video/i)
-                      ? videoshow(URL.createObjectURL(image))
-                      : imageshow(URL.createObjectURL(image))}
-                  </>
-                )}
-                <span
-                  className="status-middleimagedelete"
-                  onClick={() => deleteimage(index)}
-                >
-                  {" "}
-                  x{" "}
-                </span>
-              </div>
-            ))}
-        </div>
-        {stream && (
-          <div className="status-stream">
-            <video
-              autoPlay
-              muted
-              ref={refVideo}
-              style={{
-                height: "250px",
-                width: "100%",
-                border: "2px solid gray",
-                padding: "3px",
-                borderRadius: "10px",
-              }}
+    <div className="status-container">
+      <div  className={status.edit ? "editstatus" : "status"}>
+        <form onSubmit={handleSubmit}>
+          <div className="status-header">
+            <img src={auth?.user.image} alt="" />
+            <h4>Events</h4>
+          </div>
+          <div className="status-middle">
+            <textarea
+              type="text"
+              placeholder="Share your thoughts"
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+              rows="5"
+              col="1000"
             />
-            <span
-              className="status-middlestreamstop"
-              onClick={handleStreamStop}
-            >
-              {" "}
-              x{" "}
-            </span>
-            <canvas ref={refCanvas} style={{ display: "none" }} />
+            <small>{content.length}</small>
           </div>
-        )}
+          <div className="status-imagesdiv">
+            {images &&
+              images.map((image, index) => (
+                <div className="status-middleimagecontainer">
+                  {image.camera ? (
+                    imageshow(image.camera)
+                    ) : image.secure_url ? (
+                      <>
+                      {image.secure_url.match(/video/i)
+                        ? videoshow(image.secure_url)
+                        : imageshow(image.secure_url)}
+                    </>
+                  ) : (
+                    <>
+                      {image.type.match(/video/i)
+                        ? videoshow(URL.createObjectURL(image))
+                        : imageshow(URL.createObjectURL(image))}
+                    </>
+                  )}
+                  <span
+                    className="status-middleimagedelete"
+                    onClick={() => deleteimage(index)}
+                  >
+                    {" "}
+                    x{" "}
+                  </span>
+                </div>
+              ))}
+          </div>
+          {stream && (
+            <div className="status-stream">
+              
+              <span
+                className="status-middlestreamstop"
+                onClick={handleStreamStop}
+              >
+                {" "}
+                x{" "}
+              </span>
+              <canvas ref={refCanvas} style={{ display: "none" }} />
+            </div>
+          )}
 
-        <div className="status-footer">
-          <div className="status-footerright">
-            {stream ? (
-              <PhotoIcon onClick={handlecameraimage} />
-            ) : (
-              <>
+          <div className="status-footer">
+            <div className="status-footerright">
+              {stream ? (
+                <PhotoIcon onClick={handlecameraimage} />
+              ) : (
+                <>
 
-                <PhotoIcon onClick={handleuploadinput} />
-              </>
-            )}
-            <span>
-              <input
-                style={{ display: "none" }}
-                type="file"
-                id="postupload"
-                onChange={uploadimages}
-                multiple
-              />
-            </span>
+                  <PhotoIcon onClick={handleuploadinput} />
+                </>
+              )}
+              <span>
+                <input style={{ display: "none" }} type="file" id="postupload" onChange={uploadimages} multiple />
+              </span>
+            </div>
+            <div className="status-footerleft">
+              <button
+                className="status-footerleftdiscard"
+                onClick={handleDiscard}
+              >
+                Discard
+              </button>
+              <button className="status-footerleftcreate" type="submit">
+                Create
+              </button>
+            </div>
           </div>
-          <div className="status-footerleft">
-            <button
-              className="status-footerleftdiscard"
-              onClick={handleDiscard}
-            >
-              Discard
-            </button>
-            <button className="status-footerleftcreate" type="submit">
-              Create
-            </button>
-          </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   );
 };

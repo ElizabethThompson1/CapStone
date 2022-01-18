@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import GlobalFriendBtn from "../GlobalFriendBtn/GlobalFriendBtn";
+import "./GlobalCard.css";
 
 import { Link } from "react-router-dom";
 
@@ -23,9 +24,6 @@ const GlobalCard = ({ user }) => {
     <div className="globalcard">
       <div className="globalcard-content">
         <div className="globalcard-contenttop">
-          <img src={user.image} alt="" />
-        </div>
-        <div className="globalcard-contentmiddle">
           <img src={user.image} alt="" />
         </div>
         <Link to={`/profile/${user._id}`}>
@@ -61,7 +59,7 @@ const GlobalCard = ({ user }) => {
         )}
         {showinfoabout && (
           <div className="globalcard-contentbottomabout">
-            <p className="globalcard-contentbottomabout-bio">{user.bio}</p>
+            <p className="globalcard-contentbottomabout-interest">{user.interest}</p>
             <h4 className="globalcard-contentbottomabout-email">
               {user.email}
             </h4>

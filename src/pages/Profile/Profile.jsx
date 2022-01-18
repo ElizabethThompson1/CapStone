@@ -17,6 +17,7 @@ import Following from "../../components/Following/Following";
 import ProfilePhotoShow from "../../components/ProfilePhotoShow/ProfilePhotoShow";
 import SavedPost from "../../components/SavePost/SavePost";
 import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
+import "./Profile.css";
 
 const Profile = () => {
   const [userData, setUserData] = useState([]);
@@ -92,27 +93,17 @@ const Profile = () => {
 
 
   useEffect(() => {
-    const newprofileimages = post.map((item) => item.images ? item.images : "");
+    const newprofileimages = post.map((item) => item.image ? item.image : "");
     setPhotos(newprofileimages);
   }, [post]);
 
   return (
     <div className="profile">
-      <Info
-        userData={userData}
-        post={post}
-        dispatch={dispatch}
-        profile={profile}
-        auth={auth}
-        id={id}
-      />
+      <Info userData={userData} post={post} dispatch={dispatch} profile={profile} auth={auth} id={id} />
       <div className="profileheader">
         <div className="profileheader-items">
-          <IconButton
-            className="profileheader-item"
-            onClick={() => handletoggle("showaccount")}
-          >
-            <AccountCircleIcon />
+          <IconButton className="profileheader-item" onClick={()=>handletoggle('showaccount')}>
+            <AccountCircleIcon  />
           </IconButton>
           <hr />
           <IconButton onClick={() => handletoggle("showfriends")}>
@@ -144,13 +135,13 @@ const Profile = () => {
             <SingleUserPosts userPosts={UserPosts} post={post} dispatch={dispatch} profile={profile} auth={auth} id={id} />
           </div>
 
-          <div className="profilebody-right">
+          {/* <div className="profilebody-right">
             {photos.length > 0 && (
               <>
                 <ProfilePhotoShow photos={photos} />
               </>
             )}
-          </div>
+          </div> */}
         </div>
       )}
       {showfriends && (

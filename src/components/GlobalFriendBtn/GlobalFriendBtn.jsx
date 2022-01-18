@@ -38,7 +38,7 @@ const FriendBtn = ({ classbtn, user }) => {
           onClick={removefriend}
           style={{ backgroundColor: "crimson" }}
         >
-          Un Friend
+          UnFriend
         </button>
       ) : (
         <button className={classbtn} onClick={addfriend}>

@@ -33,19 +33,23 @@
     align-items: center;
     justify-content: center;
 }
-.profilebio-centerimage{
+
+.profileinfo-centerimage{
     position: absolute;
     width:150px;
     height:150px;
     object-fit: cover;
     transform: translateY(-40px);
-    border-top: 10px solid rgb(189, 57, 241);
-    border-left: 10px solid rgb(108, 34, 168);
-    border-right:10px solid rgb(241, 57, 216);
+    border-top: 10px solid rgb(249, 247, 250);
+    border-left: 10px solid rgb(248, 242, 253);
+    border-right:10px solid rgb(240, 237, 239);
     border-bottom:10px solid rgb(255, 255, 255);
     padding:1px;
-    border-radius: 50%;
-    
+    border-radius: 50%;   
+}
+.image{
+    padding-left: 40%;
+
 }
 .profilebio-centerbutton{
     position: absolute;

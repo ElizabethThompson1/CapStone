@@ -42,8 +42,8 @@ const Register = () => {
                     <div className='showpass-button-registration'>
                     <small className='showpass-registration' onClick={()=>setShowpass(!showpass)}>show</small>
                     </div>
-                    <button className='register-button' type="submit">Login</button>
-                    <small className='goto-account'>Have an Account<Link className="register-login" to="/">Login</Link></small>
+                    <button className='register-button' type="submit">Register</button>
+                    <small className='goto-account'>Have an Account<Link className="register-login" to="/login">Login</Link></small>
                 </form>
             </div>
         </div>

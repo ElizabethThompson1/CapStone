@@ -5,6 +5,7 @@ import PostCardBody from "../PostCardBody/PostCardBody";
 import PostCardFooter from "../PostCardFooter/PostCardFooter";
 import PostCardHeader from "../PostCardHeader/PostCardHeader";
 import PostComments from "../PostComments/PostComment";
+import "./Post.css"
 
 const Posts = () => {
   const { homePost } = useSelector((state) => state);

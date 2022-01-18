@@ -2,6 +2,7 @@ import React from 'react';
 import Banner from '../../components/Banner/Banner';
 import HomeLeft from '../../components/HomeLeft/HomeLeft';
 import HomeMid from "../../components/HomeMid/HomeMid";
+import "./Home.css"
 
 
 

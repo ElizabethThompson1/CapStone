@@ -7,7 +7,8 @@ const initialState = {
     users: [],
     posts : [],
     ids:[],
-    userposts:[]
+    userposts:[],
+    interest:[],
 }
 
 export const profileReducer = (state = initialState , action) => {
@@ -46,6 +47,13 @@ export const profileReducer = (state = initialState , action) => {
                 return{
                     ...state,
                     users: EditData(state.users, action.payload._id, action.payload )
+                }
+        case PROFILE_TYPES.INTEREST:
+            return{
+                ...state,
+                users: EditData(state.users, action.payload._id, action.payload )
+                            
+                    
                 }
         default:
             return state

@@ -44,14 +44,14 @@ const PostCardBody = ({ pos }) => {
           onClick={() => shownextimage(pos.images)}
         >
           {" "}
-          v{" "}
+          {" "}
         </span>
         <span
           className="postcardbodyimageprev"
           onClick={() => showprevimage(pos.images)}
         >
           {" "}
-          v{" "}
+          {" "}
         </span>
 
         {pos.images?.length > 0 &&

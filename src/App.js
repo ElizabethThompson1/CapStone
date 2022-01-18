@@ -19,18 +19,12 @@ import { getPost } from "./redux/actions/PostAction";
 import Conversation from "./components/Conversation/Conversation";
 import {getNotify} from "./redux/actions/notifyAction";
 
+
 function App() {
   const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
   const login = localStorage.getItem("login");
 
-  // useEffect(() => {
-  //   dispatch(refreshToken());
-
-  //   const socket = io();
-  //   dispatch({ type: ALERT_TYPES.SOCKET, payload: socket });
-  //   return () => socket.close();
-  // }, [dispatch]);
 
   useEffect(() => {
     if (auth.token) {
@@ -72,7 +66,7 @@ function App() {
             <Post />
           </PrivateRouter>
           <Route exact path="/profile/:id">
-            {login ? <Profile /> : <Redirect to="/" />}
+            {/* {login ? <Profile /> : <Redirect to="/" />} */}
             <Profile />
           </Route>
           <Route><NotFound/></Route>

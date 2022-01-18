@@ -73,8 +73,7 @@ const LeftSideMessage = () => {
           </>
         ) : (
           <>
-            {message.users?.length > 0 &&
-              message.users?.map((user, index) => (
+            {message.users?.length > 0 && message.users?.map((user, index) => (
                 <div onClick={() => handleAddChat(user)} key={index}>
                   <UserCardMessages user={user} msg={true}>
                     <FiberManualRecordIcon />

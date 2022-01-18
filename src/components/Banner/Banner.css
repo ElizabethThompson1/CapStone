@@ -1,0 +1,14 @@
+.banner{
+    flex-direction: column;
+    background-image: url("../../Images/landscape-g45afdfa3e_640\ \(2\).jpg");
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+}
+.banner-name{
+    font-size: 8rem;
+    padding-left: 20%;
+    padding-top: 4%;
+    text-shadow: white;
+}

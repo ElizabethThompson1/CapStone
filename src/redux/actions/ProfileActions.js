@@ -1,9 +1,8 @@
 import { DeleteData} from "./alertActions"
-import {getDataApi, patchDataApi} from '../../utils/fetchData';
-import {imageupload} from "../../utils/ImageUpload";
+import {getDataApi, patchDataApi} from '../../utils/fetchData'
+import {imageupload} from "../../utils/ImageUpload"
 import axios from "axios";
-import { createNotify,removeNotify } from "./notifyAction";
-
+import {createNotify, removeNotify} from "./notifyAction"
 
 export const PROFILE_TYPES = {
     LOADING : 'LOADING',
@@ -47,7 +46,7 @@ export const getProfileUsers = ({users,id, auth}) => async (dispatch) =>{
 }
 export const getProfileUsersPost = ({profil,id, auth}) => async (dispatch) =>{
     if(profil.every(item => item._id !== id)){
- 
+    //  dispatch({type:PROFILE_TYPES.GET_IDS , payload: id })
         try {
             dispatch({type: PROFILE_TYPES.LOADING, payload:{loading:true}})
             
@@ -77,10 +76,10 @@ export const getProfileUsersPost = ({profil,id, auth}) => async (dispatch) =>{
     }
 }
 
-export const updateProfile = ({editData,image, auth}) =>async (dispatch) =>{
+export const updateProfile = ({editData, image, auth}) =>async (dispatch) =>{
     if(!editData.fullname) return dispatch({type:"ALERT", payload:{error:"Add you fullname"}})
-    if(editData.fullname.length > 25) return dispatch({type:"ALERT", payload:{error:"Fullname tooo long"}})
-    if(editData.bio.length >200) return dispatch({type:"ALERT", payload:{error:"bio too long"}})
+    if(editData.fullname > 25) return dispatch({type:"ALERT", payload:{error:"Fullname tooo long"}})
+    if(editData.story >200) return dispatch({type:"ALERT", payload:{error:"story too long"}})
 
     try {
         let media;
@@ -88,7 +87,7 @@ export const updateProfile = ({editData,image, auth}) =>async (dispatch) =>{
         dispatch({type:"ALERT", payload : {loading: true}})
         if(image) media = await imageupload([image])
 
-        const res = await axios.patch("http://localhost:5000/api/user", {
+        const res = await axios.patch("http://localhost:5000/api/user/", {
             ...editData,
             image: image ? media[0].secure_url  : auth.user.image  
         },
@@ -120,7 +119,6 @@ export const updateProfile = ({editData,image, auth}) =>async (dispatch) =>{
         })
     }
 }
-
 export const addfriends = ({users, user, auth,socket}) => async (dispatch) =>{
 let newUser;
 if(users.every(item => item._id !== user._id)){

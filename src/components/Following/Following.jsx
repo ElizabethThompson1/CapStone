@@ -15,7 +15,7 @@ const FollowingCard = ({ user }) => {
         }}
       >
         <h4 style={{ textAlign: "center" }}>
-          {user.length} <span> Following </span>
+          {user} <span> Following </span>
         </h4>
       </div>
       <div
@@ -27,8 +27,7 @@ const FollowingCard = ({ user }) => {
           gridTemplateColumns: "repeat(4,1fr)",
         }}
       >
-        {user.length > 0 &&
-          user.map((fol) => <GlobalCard user={fol} key={fol._id} />)}
+        {user > 0 && user.map((fol) => <GlobalCard user={fol} key={fol._id} />)}
       </div>
     </>
   );

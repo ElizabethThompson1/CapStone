@@ -7,13 +7,7 @@ const ShowFriendsProfile = ({ user }) => {
     <div className="showFriendsProfile">
       <div>
         <h4
-          style={{
-            marginTop: ".5rem",
-            textAlign: "center",
-            padding: "1rem",
-            borderBottom: "2px solid gray",
-          }}
-        >
+          style={{ marginTop: ".5rem", textAlign: "center", padding: "1rem", borderBottom: "2px solid gray", }} >
           {" "}
           Friends{" "}
           <span style={{ fontWeight: "700", color: "teal" }}>

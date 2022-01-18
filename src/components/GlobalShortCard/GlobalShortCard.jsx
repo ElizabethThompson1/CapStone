@@ -1,4 +1,5 @@
 import React from "react";
+import "./GlobalShort.css"
 
 const GlobalShortCard = ({ friend }) => {
   console.log(friend);
